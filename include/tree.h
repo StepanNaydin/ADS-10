@@ -9,8 +9,7 @@ struct tree_elem {
     char m_data;
     int count = 1;
     std::vector<tree_elem*> Links;
-    explicit tree_elem(char in, tree_elem* a = NULL)
-    {
+    explicit tree_elem(char in, tree_elem* a = NULL) {
         m_data = in;
     }
 };
@@ -20,22 +19,21 @@ class Tree {
         tree_elem& elem;
         std::vector<char> in;
         bspom* a;
-        bspom(tree_elem& elem, std::vector<char> in, bspom* a) : elem(elem), in(in), a(a) {};
+        bspom(tree_elem& elem, std::vector<char> in, bspom* a) :
+        elem(elem), in(in), a(a) {}
     };
 
  public:
     std::vector<char> all;
     int len;
-    Tree(std::vector<char> in) {
+    explicit Tree(std::vector<char> in) {
         len = in.size();
         for (int q = 0; q < in.size(); q++) {
             tree_elem* elem = new tree_elem(in[q]);
             std::vector<char> in2 = in;
             char z = elem->m_data;
-            for (auto it = in2.begin(); it != in2.end(); )
-            {
-                if (*it == z)
-                {
+            for (auto it = in2.begin(); it != in2.end(); ) {
+                if (*it == z) {
                     it = in2.erase(it);
                     break;
                 } else {
@@ -52,10 +50,8 @@ class Tree {
             a.elem.Links.push_back(elem1);
             std::vector<char> in2 = a.in;
             char z = elem1->m_data;
-            for (auto it = in2.begin(); it != in2.end(); )
-            {
-                if (*it == z)
-                {
+            for (auto it = in2.begin(); it != in2.end(); ) {
+                if (*it == z) {
                     it = in2.erase(it);
                     break;
                 } else {
@@ -75,7 +71,6 @@ class Tree {
                 if (a.a != 0) {
                     all.push_back(a.a->elem.m_data);
                 }
-
             }
         }
         if (a.a != 0) {
