@@ -19,7 +19,7 @@ class Tree {
         tree_elem& elem;
         std::vector<char> in;
         bspom* a;
-        bspom(tree_elem& elem, std::vector<char> in, bspom* a) :
+        bspom(tree_elem elem, std::vector<char> in, bspom* a) :
         elem(elem), in(in), a(a) {}
     };
 
